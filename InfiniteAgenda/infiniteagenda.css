@@ -1,0 +1,29 @@
+.calendarcontainer{
+	width:100%;
+	position: relative;
+}
+.backgroundcolor{
+	background-color: rgb(178, 202, 246);
+}
+
+
+.image{
+	width: 100vw;
+
+
+}
+.pointer{
+	max-width: 25px;
+	z-index: 2;
+	position:absolute;	
+}
+
+.textarea{
+	width: 200px;
+	height: 200px;
+}
+
+.textBox {
+	z-index: 2;
+	position: absolute;
+}
