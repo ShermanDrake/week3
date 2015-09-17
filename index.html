@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="goldRush">
 
 <head>
 <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
 	<title>Gold Rush</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="script.js"></script>
 
 </head>
-
+ 
 	<body ng-controller= "mainController">
+   	<div class="whole-page">
 
-	<h1> Hello Javascript! </h1>
+	<h1> Eurika! </h1>
 
-	<script src="node.js"></script>
 		<div id="portfolio">
 		<div class="portfolio-item">
 			<div class="front">
@@ -19,13 +22,14 @@
 			</div>
 			<div class="back">
 				<h2>Gold Rush</h2>
-				<p>
 
-				</p>
+				<div ng-click="addOnClick($event)"></div>
+
 			</div>
 		</div>
 
 
-
+	</div>
 	</body>
+
 </html>

@@ -26,8 +26,50 @@
 
 // }
 
-for(var i = 0; i <= 3; i=i+1) {
-console.log(i);
+// for(var i = 0; i <= 3; i=i+1) {
+// console.log(i);
 
+// }
+
+angular.module("myApp", [])
+
+angular.module("myApp")
+
+
+$scope.addOnClick = function(event) {
+        $scope.items.push( {
+            "label": "Click",
+            "value": 100,
+            "x": event.OffsetX-50,
+            "y": event.OffsetY-50,
+        })
 }
+
+
+angular.module("myApp").controller("addOnClick",['$scope', textCtrl])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

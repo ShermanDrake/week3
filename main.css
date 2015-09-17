@@ -1,0 +1,110 @@
+body {
+background-color: rgb(244, 244, 255);
+
+}
+
+html {
+	font-size: 24px;
+
+}
+
+.whole-page {
+    width: 60vw;
+    margin: 0 auto;
+
+}
+
+.my-website {
+	background-color: rgb(147, 157, 196);
+    height: 8rem;
+    border-bottom: 5px solid;
+    border-color:rgb(62, 62, 199);
+    color: white;
+    font: helvetica;
+
+}
+
+.navbar {
+	background-color: rgb(52, 73, 94);
+    text-align: right;
+    height: 35px;
+    border-bottom: 5px solid rgb(44, 62, 80); 
+
+}
+
+.navbar li{
+
+    color:white;
+    display: inline-block;
+    font-size: 0.5rem;
+    padding: 0px 10px;
+}
+
+.highlight-hover:hover {
+	color: rgb(147, 157, 196);
+
+}
+
+.picture-lg img {
+	float: left;
+	margin-right: 10px; 
+	position: left;
+
+}
+
+.paragraph-text {
+	color: black;
+	display: inline-block;
+	font-size: 12px;
+	padding: 5px 5px;
+
+}
+
+.center-picture img {
+	padding: 5px;
+	margin-top: 5px;
+
+}
+
+.center-picture {
+	text-align: center;
+
+}
+
+ul{
+    margin: 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* keep media screen at the bottom of the css */
+
+@media screen and (min-width: 768px){
+	.column-1 {
+		background-color: 
+		width: 50%;
+	}
+
+}
+
+
