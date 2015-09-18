@@ -16,12 +16,7 @@
 
         <div class="day-box" ng-repeat='day in dates'>
         	<h2 class="day-date"> {{day.day | date:'EEEE'}} {{day.day | date: 'd'}}, {{day.day | date: 'yyyy'}}</h2>
-        </div> 
-
-<!--         <div class="template" ng-repeat='day in dates'>
-            <h2 class="month">{{day.day | date:'MMMM'}}</h2>
-            <h4 class="day-date">{{day.day | date:'EEEE'}} {{day.day | date: 'd'}}</h4>
-            <button class='btn event'ng-click='addToDo($index)' ng-hide='day.addEvent'>+event</button>
+            <button class='btn event'ng-click='addToDo($index)' ng-hide='day.addEvent'>New Event</button>
             <div class="appointment-form" ng-show='day.eventForm'>
 
                 <form ng-submit='eventSubmit($index)'>
@@ -30,12 +25,27 @@
                     <input type="text" id="location" placeholder="Location..." ng-model='day.todo.location'><br>
                     <input class='submit' type="submit" value="Submit">
                 </form>
-            </div> -->
-<!--             <div>
+
+        </div> 
+
+<!--         <div class="template" ng-repeat='day in dates'>
+            <h2 class="month">{{day.day | date:'MMMM'}}</h2>
+            <h4 class="day-date">{{day.day | date:'EEEE'}} {{day.day | date: 'd'}}</h4> -->
+<!--             <button class='btn event'ng-click='addToDo($index)' ng-hide='day.addEvent'>New Event</button>
+            <div class="appointment-form" ng-show='day.eventForm'> -->
+
+<!--                 <form ng-submit='eventSubmit($index)'>
+                    <input type="text" id="event-title" placeholder="Event Title..." ng-model='day.todo.event'><br>
+                    <input type="text" id="time" placeholder="Time..." ng-model='day.todo.time'><br>
+                    <input type="text" id="location" placeholder="Location..." ng-model='day.todo.location'><br>
+                    <input class='submit' type="submit" value="Submit">
+                </form> -->
+            </div>
+            <div>
                 <ul class="unstyled">
                     <li ng-repeat="todoitem in day.todos"ng-hide='todoitem.visible'>
                        <input type="checkbox" ng-model="todo.done">
-                       <span class="done-{{todo.done}}">Event: {{todoitem.event}}; Time: {{todoitem.time}}; Location: {{todoitem.location}}; Task#: {{$index + 1}} <button class="delete" ng-click='todoitem.visible = !todoitem.visible'>delete</button></span> -->
+                       <span class="done-{{todo.done}}">Event: {{todoitem.event}}; Time: {{todoitem.time}}; Location: {{todoitem.location}}; Task#: {{$index + 1}} <button class="delete" ng-click='todoitem.visible = !todoitem.visible'>delete</button></span>
                     <!--    <span class="done-{{todo.done}}" ng-model=''>Event: {{todo.event}}; Time: {{todo.time}}; Location: {{todo.location}}; Task#: {{$index + 1}}</span> -->
                     </li>
                 </ul>
