@@ -1,38 +1,49 @@
 	<!DOCTYPE html>
-	<html ng-app="exModule">
-	<head>
-		<title>
-			Infinite Agenda App!
-		</title>
-		<link rel="stylesheet" type="text/css" href="infiniteagenda.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js" type="text/javascript"></script>
-		<script src="infiniteagenda.js" type="text/javascript"></script>
-	</head>
+<html ng-app="app" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Infinite Agenda</title>
+        <!-- <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" type="text/css" href="infiniteagenda.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+        
+    </head>
+    <body ng-controller="mainController">
 
-	<body ng-controller="mainController">
-	<div class = "calendarcontainer" ng-click = "imageclick($event)">
-		<div>
-			<img>
+    	<div class="whole-page">
 
-			<img>
+        <div class="title">Calander App</div>
 
-			<div>
+        <div class="day-box" ng-repeat='day in dates'>
+        	<h2 class="day-date"> {{day.day | date:'EEEE'}} {{day.day | date: 'd'}}, {{day.day | date: 'yyyy'}}</h2>
+        </div> 
 
-			</div>
+<!--         <div class="template" ng-repeat='day in dates'>
+            <h2 class="month">{{day.day | date:'MMMM'}}</h2>
+            <h4 class="day-date">{{day.day | date:'EEEE'}} {{day.day | date: 'd'}}</h4>
+            <button class='btn event'ng-click='addToDo($index)' ng-hide='day.addEvent'>+event</button>
+            <div class="appointment-form" ng-show='day.eventForm'>
+
+                <form ng-submit='eventSubmit($index)'>
+                    <input type="text" id="event-title" placeholder="Event Title..." ng-model='day.todo.event'><br>
+                    <input type="text" id="time" placeholder="Time..." ng-model='day.todo.time'><br>
+                    <input type="text" id="location" placeholder="Location..." ng-model='day.todo.location'><br>
+                    <input class='submit' type="submit" value="Submit">
+                </form>
+            </div> -->
+<!--             <div>
+                <ul class="unstyled">
+                    <li ng-repeat="todoitem in day.todos"ng-hide='todoitem.visible'>
+                       <input type="checkbox" ng-model="todo.done">
+                       <span class="done-{{todo.done}}">Event: {{todoitem.event}}; Time: {{todoitem.time}}; Location: {{todoitem.location}}; Task#: {{$index + 1}} <button class="delete" ng-click='todoitem.visible = !todoitem.visible'>delete</button></span> -->
+                    <!--    <span class="done-{{todo.done}}" ng-model=''>Event: {{todo.event}}; Time: {{todo.time}}; Location: {{todo.location}}; Task#: {{$index + 1}}</span> -->
+                    </li>
+                </ul>
+            </div>
 
 
-		</div>
-		<div >
-			
-		</div>
-		
+        </div>
 
-
-
-
-
-
-
-
-	</body>
-	</html>
+        <script src="infiniteagenda.js"></script>
+    </body>
+</html>

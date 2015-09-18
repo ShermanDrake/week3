@@ -1,81 +1,101 @@
+var mainController = function($scope, $interval){
+    //console.log('Hello world!')
 
+    $scope.day = new Date()
+    // $scope.futureDate = moment().add(1, 'days')
 
-angular.module('exModule', []);
-angular.module('exModule');
-angular.module('exModule').controller('mainController', ['$scope', function($scope){
+    $scope.dates = [
+    	{day: $scope.date, todos: [], visible: true},
+    	{day: $scope.date, todos: [], visible: true},
+    	{day: $scope.date, todos: [], visible: true},
+    	{day: $scope.date, todos: [], visible: true},
+    	{day: $scope.date, todos: [], visible: true},
+    	{day: $scope.date, todos: [], visible: true},
+    	{day: $scope.date, todos: [], visible: true},
 
-$scope.submitshow = true;
-$scope.clicked = false;
-$scope.textboxVisible = false;
-$scope.textentryvisible = false;
-$scope.clickcounter = 0
-$scope.textcontent = '';
-$scope.textarea = true;
+    ]
 
+    for (var i =0 ; i < $scope.dates.length; i++){
+		var currentDate = new Date();
+    	currentDate.setDate(currentDate.getDate()+ i);
+    	$scope.dates[i].day = currentDate
+	}
+    
+    $scope.todos = []
 
-$scope.imageclick = function(event){
-		$scope.clickcounter++
-		if ($scope.clickcounter === 1){
-		$scope.clicked = true;
-		$scope.textboxVisible = true;
-      	$scope.x = event.offsetX; 
-        $scope.y = event.offsetY;
-        $scope.textX = (event.offsetX + 100);}
+    
+    $scope.addEvent = true
+    $scope.eventForm = true
 
+    $scope.addToDo = function(index) {
+    	$scope.dates[index].addEvent = !$scope.dates[index].addEven
+    	$scope.dates[index].eventForm = !$scope.dates[index].eventForm
+
+    }
+
+    $scope.eventSubmit = function(index) {
+
+    	$scope.dates[index].addEvent = !$scope.dates[index].addEvent
+    	$scope.dates[index].eventForm = !$scope.dates[index].eventForm
+    	$scope.dates[index].todos.push(angular.copy($scope.dates[index].todo))
+     	$scope.dates[index].todo = {}
         
-        }
+    }
 
-$scope.submit = function(event){
-	$scope.textboxVisible = true;
-	$scope.submitshow = false;
-	$scope.textentryvisible = true;
-	$scope.textarea = false;
+    $scope.addDate = function(index){
+		var currentDate = new Date()
+		currentDate.setDate(currentDate.getDate() + $scope.dates.length);
+		var tempObj = {
+			day: currentDate,
+			entry: [{entry: ""}]
+		}
+		$scope.dates.push(tempObj)
+	}
 
-}        
+	$interval(function(index){
+    	var scrollpercent = (document.body.scrollTop + document.documentElement.scrollTop) / 
+    		(document.documentElement.scrollHeight - document.documentElement.clientHeight);
+    	console.log(scrollpercent)
+    	if(scrollpercent > .65){
+    		$scope.addDate(index)
+    	}
+	}, 100)	
 
-$scope.cancel = function(event){
-	$scope.clickcounter = -1;
-	$scope.clicked = false;
-	$scope.textboxVisible = false;
-	$scope.textcontent = '';
-	$scope.textentryvisible = false;
-	$scope.textarea = true;
+    
 
+      
 
+      // $scope.remaining = function() {
+      //   var count = 0;
+      //   angular.forEach($scope.todos, function(todo) {
+      //     count += todo.done ? 0 : 1;
+      //   });
+      //   return count;
+      // };
+
+      // $scope.archive = function() {
+      //   var oldTodos = $scope.todos;
+      //   $scope.todos = [];
+      //   angular.forEach(oldTodos, function(todo) {
+      //     if (!todo.done) $scope.todos.push(todo);
+      //   });
+      // };
 }
 
-$scope.pointerClick = function(event) {
-		$scope.clicked = false;
-
-        }
-$scope.textbox = function(event) {
-		$scope.textboxVisible = false;
-		$scope.textentryvisible = true;
-
-
-}        
-
-}])
-// $scope.setactiveindex = function($index){
-// 		$scope.activeindex = $index;
-// 	}
-// 	$scope.isactiveindex = function($index){
-// 		return ($scope.activeindex === $index);
-// 	}
-// 	$scope.setactiveindex2 = function($index){
-// 		$scope.activeindex2 = $index;
-// 	}
-// 	$scope.isactiveindex2 = function($index){
-// 		return ($scope.activeindex2 === $index);
-// 	}
-// 	$scope.setactiveindex3 = function($index){
-// 		$scope.activeindex2 = -2;
-// 		$scope.activeindex = -2;
-// 	}
+angular.module('app', [])
+    .controller('mainController', ['$scope', '$interval', mainController])
 
 
 
-// var x = event.clientX;     // Get the horizontal coordinate
-// var y = event.clientY;     // Get the vertical coordinate
 
-// <!--  -->
+
+
+
+
+
+
+
+
+// angular.module('app', []);
+// angular.module('app');
+// angular.module('app').controller('mainController', ['$scope', function($scope){
